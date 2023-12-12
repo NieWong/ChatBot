@@ -6,10 +6,15 @@
       "responses": ["Hi there, what can I do for you?","Hi there, how can I help?"]
     },
     {
+      "tag": "how_are_you",
+      "patterns": ["How are you?", "How are you doing?", "What's up?", "How's it going?"],
+      "responses": ["I'm fine thank you,", "Thank you for asking! I'm here and ready to help.", "I'm functioning well, thanks for asking."]
+    },
+    {
       "tag": "search_wikipedia",
       "patterns": ["Tell me about", "What is", "Search Wikipedia for"],
       "responses": ["Sure, I can look that up for you. What topic would you like to search on Wikipedia?"]
-  },
+    },
     {
       "tag": "goodbye",
       "patterns": ["Bye", "See you later", "Goodbye", "Farewell", "Take care"],

@@ -1,9 +1,11 @@
 import random
 import json
+import re
 import torch
 from model import NeuralNet
 from nltkUtils import bag_of_words, tokenize
-from api_wiki import get_wikipedia_summary  # Import the Wikipedia API function
+from api_wiki import get_wikipedia_summary
+from api_weather import get_weather 
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -25,17 +27,29 @@ model.load_state_dict(model_state)
 model.eval()
 
 bot_name = "Ivan"
+weather_api_key = 'b546710a0aec466dbc150610231212'
+
 print("Let's chat! (type 'quit' to exit)")
 while True:
     sentence = input("You: ")
     if sentence.lower() == "quit":
         break
 
-    if sentence.lower() == "search wikipedia":
-        print(f"{bot_name}: What topic would you like to search on Wikipedia?")
-        search_query = input("You: ")
+    wikipedia_search_patterns = re.compile(r"(search\s(wikipedia|wiki)|wikipedia|wiki)\s*['\"]?([^'\"]*)['\"]?")
+    weather_search_patterns = re.compile(r"(weather|temperature)\s*['\"]?([^'\"]*)['\"]?")
+
+    if wikipedia_search_patterns.search(sentence.lower()):
+        match = wikipedia_search_patterns.search(sentence.lower())
+        search_query = match.group(3) if match.group(3) else input("You: What topic would you like to search on Wikipedia? ")
         summary = get_wikipedia_summary(search_query)
         print(f"{bot_name}: Wikipedia Summary for '{search_query}':\n{summary}")
+
+    elif weather_search_patterns.search(sentence.lower()):
+        match = weather_search_patterns.search(sentence.lower())
+        location = match.group(2) if match.group(2) else input("You: What location would you like the weather for? ")
+        weather_info = get_weather(weather_api_key, location)
+        print(f"{bot_name}: {weather_info}")
+
     else:
         sentence = tokenize(sentence)
         X = bag_of_words(sentence, all_words)

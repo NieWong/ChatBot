@@ -15,7 +15,6 @@ def get_wikipedia_summary(title, lang='en'):
     response = requests.get(base_url, params=params)
     data = response.json()
 
-    # Extract page content from the response
     pages = data['query']['pages']
     page_id = next(iter(pages))
     if 'extract' in pages[page_id]:
