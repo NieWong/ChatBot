@@ -2,28 +2,33 @@
   "intents": [
     {
       "tag": "greeting",
-      "patterns": ["Hi","Hey","How are you","Hello"],
-      "responses": ["Hi there, what can I do for you?","Hi there, how can I help?"]
+      "patterns": ["Сайн уу","Hey","How are you","Hello"],
+      "responses": ["Сайн уу, манай кофе шопд тавтай морил","Сайн уу! Би өнөөдөр танд яаж туслах вэ?"]
     },
     {
-      "tag": "how_are_you",
-      "patterns": ["How are you?", "How are you doing?", "What's up?", "How's it going?"],
-      "responses": ["I'm fine thank you,", "Thank you for asking! I'm here and ready to help.", "I'm functioning well, thanks for asking."]
+      "tag": "menu",
+      "patterns": ["меню", "цэс", "Танай менюг харж болох уу?", "Танай цэсийг харж болох уу?", "Менюгээ харуулаач", "Танайд ямар кофе байна", "Ямар кофе байна"],
+      "responses": ["Манай меню:\n- Американо: 5000\n- Эспрессо: 4000\n- Кремтэй Эспрессо: 7000\n- Хөөстэй Эспрессо: 6000\n- Карамель Маккиато: 8000\n Шоколадтай Кофе: 7500\n Ванильтай латте: 7500"]
     },
     {
-      "tag": "search_wikipedia",
-      "patterns": ["Tell me about", "What is", "Search Wikipedia for"],
-      "responses": ["Sure, I can look that up for you. What topic would you like to search on Wikipedia?"]
+      "tag": "recommendation",
+      "patterns": ["Юу санал болгомоор байна вэ?", "Any recommendations?", "What's your bestseller?", "What's popular?"],
+      "responses": ["Бидний хамгийн алдартай бүтээгдэхүүн бол карамель макиато байвал ямар вэ?", "Американо санал болгож байна."]
+    },
+    {
+      "tag": "order",
+      "patterns": ["захиалъя", "авъя", "авмаар байна"],
+      "responses": ["Таны захиалга амжилттай баталгаажлаа"]
     },
     {
       "tag": "goodbye",
-      "patterns": ["Bye", "See you later", "Goodbye", "Farewell", "Take care"],
-      "responses": ["See you later, thanks for visiting","Have a nice day","Bye! Come back again soon."]
+      "patterns": ["Баяртай", "Дараа уулзъя"],
+      "responses": ["Баяртай, зочилсонд баярлалаа","Баярлалаа баяртай","Дараа дахин үйлчлүүлээрэй"]
     },
     {
       "tag": "thanks",
-      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!", "Appreciate it"],
-      "responses": ["Happy to help!","My pleasure"]
+      "patterns": ["Баярлалаа", "Талархлаа"],
+      "responses": ["Тусалсандаа баяртай байна!","Зүгээр дээ"]
     }
   ]
 }
