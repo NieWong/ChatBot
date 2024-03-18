@@ -9,7 +9,7 @@ from model import NeuralNet
 
 from nltkUtils import bag_of_words, tokenize, stem
 
-with open('intents.json', 'r') as f:
+with open('intents.json', 'r', encoding='utf-8') as f:
     intents = json.load(f)
 
 all_words = []
