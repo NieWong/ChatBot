@@ -6,7 +6,7 @@ Install Python:
 
 Install packages:
 
-    pip install torch nltk requests
+    pip install torch nltk requests flask
 
 To train:
 
