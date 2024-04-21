@@ -130,6 +130,7 @@ class Chatbox {
 
             if (item.name === "Caffe Bene" && item.message === "Тантай ойрхон хаяг:") {
                 getLocation();
+
             } else {
                 html += '<div class="messages__item ' + cssClass + '">' +
                 '<img src="' + profilePicture + '" class="profile-picture">' +
@@ -156,6 +157,8 @@ class Chatbox {
 
 const chatbox = new Chatbox();
 chatbox.display();
+
+
 
 const getLocation = () => {
     if (navigator.geolocation) {
@@ -213,39 +216,24 @@ function findClosestBranch(userLat, userLon) {
     return closestBranch;
 }
 
-const showPosition = (position) => {
-    const userLat = position.coords.latitude;
-    const userLon = position.coords.longitude;
-
+function addClosestBranchMessage(userLat, userLon) {
     const closestBranch = findClosestBranch(userLat, userLon);
+    const closestBranchInfo = `Тантай хамгийн ойр байрлах салбар: ${closestBranch.name}`;
+    let message = { name: "Caffe Bene", message: closestBranchInfo };
+    chatbox.messages.push(message);
+    chatbox.updateChatText(chatbox.args.chatBox);
+}
+let closestBranchMessageAdded = false;
 
-    if (closestBranch) {
-        const closestBranchInfo = `Тантай хамгийн ойр салбар: ${closestBranch.name}`;
-
-        const cssClass = "messages__item--visitor";
-        const profilePicture = "/ui/images/logo.png"; 
-        const sender = "CaffeBene"; 
-
-        const html =
-            `<div class="messages__item ${cssClass}">
-                <img src="${profilePicture}" class="profile-picture">
-                <div class="message-content">
-                    <div class="sender">${sender}</div>
-                    <div class="message">${closestBranchInfo}</div>
-                </div>
-            </div>`;
-
-        const chatmessage = document.querySelector('.chatbox__messages');
-        chatmessage.insertAdjacentHTML('afterbegin', html);
-
-        const textContainer = document.querySelector('.text-container');
-        textContainer.scrollTop = textContainer.scrollHeight;
-
-        
-    } else {
-        console.error("No branches found.");
+const showPosition = (position) => {
+    if (!closestBranchMessageAdded) {
+        const userLat = position.coords.latitude;
+        const userLon = position.coords.longitude;
+        addClosestBranchMessage(userLat, userLon);
+        closestBranchMessageAdded = true;
     }
 };
+
 
 
 const showError = (error) => {
