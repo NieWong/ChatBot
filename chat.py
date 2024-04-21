@@ -7,7 +7,6 @@ from model import NeuralNet
 from nltkUtils import bag_of_words, tokenize
 from api_wiki import get_wikipedia_summary
 from api_weather import get_weather
-from nearest_branch import get_user_location
 from subprocess import call
 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
