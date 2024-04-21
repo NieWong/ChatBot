@@ -58,10 +58,12 @@ def process_message(model, sentence, intents, all_words, tags):
     if prob.item() > 0.75:
         for intent in intents['intents']:
             if tag == intent["tag"]:
-                if tag == intent["tag"] and tag in ["location"]:
-                    return get_user_location()
-                else:
-                    return random.choice(intent['responses'])
+                """
+               if tag == intent["tag"] and tag in ["location"]:
+                   
+                   return get_user_location() 
+                """
+                return random.choice(intent['responses'])
     return "Би ойлгохгүй байна..."
 
 def chat():
