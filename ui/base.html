@@ -6,6 +6,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Cabin:ital,wght@0,400..700;1,400..700&family=Indie+Flower&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Cabin:ital,wght@0,400..700;1,400..700&family=Indie+Flower&family=Leckerli+One&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Cabin:ital,wght@0,400..700;1,400..700&family=Indie+Flower&family=Leckerli+One&family=Shadows+Into+Light&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Cabin:ital,wght@0,400..700;1,400..700&family=Indie+Flower&family=Leckerli+One&family=Shadows+Into+Light&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&family=Yanone+Kaffeesatz:wght@200..700&display=swap" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
     <title>Caffe Bene Chatbot</title>
@@ -42,13 +43,15 @@
         </div>
     </div>
     <div class="chatbox__button">
-        <button><img draggable="false" src="{{ url_for('static', filename='images/logo.png') }}" /></button>
+        <button class="openButton"><img draggable="false" src="{{ url_for('static', filename='images/logo.png') }}" /></button>
     </div>
 </div>
 
     <script>
         $SCRIPT_ROOT = {{ request.script_root|tojson }};
     </script>
-    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='textTypingEffect.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='geolocation.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='chatbox.js') }}"></script>
 </body>
 </html>

@@ -37,16 +37,18 @@ p, div {
     font-weight: 400;
     font-style: normal;
 }
+
 body {
     font-family: 'Nunito', sans-serif;
     font-weight: 400;
     font-size: 100%;
+    animation: gradientAnimation 20s infinite alternate;
     background: linear-gradient(93.12deg, #130900 0.72%, #322C2B 100%);
 }
 
 *, html {
-    --primaryGradient: linear-gradient(93.12deg, #221813 57.52%, #241401  100%);
-    --secondaryGradient: linear-gradient(to bottom, #2b2222, #331f20, #3b1c1e, #42171d, #49111c);
+    --primaryGradient: linear-gradient(to right bottom, #162a2c, #1e2c2a, #252e29, #2c302b, #32322e);
+    --secondaryGradient: linear-gradient(to right bottom, #162a2c, #1f2b25, #292b23, #302b26, #322c2b);
     --primaryBoxShadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
     --secondaryBoxShadow: 0px -10px 15px rgba(0, 0, 0, 0.1);
     --primary: #581B98;
@@ -97,7 +99,7 @@ body {
     right: 50%;
     opacity: 1;
     transform: translate(50%, 50%);
-    transition: opacity 0.3s ease-in-out, transform 0.1s ease-in-out;
+    transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
 }
 
 .send__button {
@@ -163,9 +165,9 @@ img.profile-picture {
 }
 
 .sender {
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     font-weight: 800;
-    font-size: 1rem;
+    font-size: 1.-rem;
 }
 .messages__item {
     max-width: 100%;
@@ -310,18 +312,18 @@ img.profile-picture {
     display: flex;
     width: 50%;
     flex-direction: row;
+    height: 60px;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 20px;
+    padding: 0px 20px 0px 20px;
     border: 2px solid #FFFFFF;
     border-radius: 15px;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 70px;
     transition: width 0.3s ease-in-out;
 }
 .chatbox__footer input[type="text"] {
     width: 100%;
-    height: 45px;
+    height: 50px;
     background-color: transparent;
     color: #FFFFFF;
     border: none;
@@ -336,8 +338,6 @@ img.profile-picture {
 .chatbox__footer input {
     width: 90%;
     border: none;
-    padding: 10px 10px;
-    border-radius: 30px;
     text-align: left;
 }
 
@@ -360,5 +360,5 @@ img.profile-picture {
 }
 
 .chatbox__button button:hover {
-    transform:scale(1.1)
+    transform:scale(1.05)
 }
