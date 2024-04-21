@@ -2,10 +2,13 @@ import random
 import json
 import re
 import torch
+import os
 from model import NeuralNet
 from nltkUtils import bag_of_words, tokenize
 from api_wiki import get_wikipedia_summary
-from api_weather import get_weather 
+from api_weather import get_weather
+from nearest_branch import get_user_location
+from subprocess import call
 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 bot_name = "Caffe Bene"
@@ -55,7 +58,10 @@ def process_message(model, sentence, intents, all_words, tags):
     if prob.item() > 0.75:
         for intent in intents['intents']:
             if tag == intent["tag"]:
-                return random.choice(intent['responses'])
+                if tag == intent["tag"] and tag in ["location"]:
+                    return get_user_location()
+                else:
+                    return random.choice(intent['responses'])
     return "Би ойлгохгүй байна..."
 
 def chat():
@@ -65,7 +71,6 @@ def chat():
         sentence = input("You: ")
         if sentence.lower() == "quit":
             break
-
         response = handle_wikipedia_search(sentence) or handle_weather_search(sentence) or process_message(model, sentence, intents, all_words, tags)
         print(f"{bot_name}: {response}")
 
