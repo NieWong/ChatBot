@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Cabin:ital,wght@0,400..700;1,400..700&family=Indie+Flower&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Cabin:ital,wght@0,400..700;1,400..700&family=Indie+Flower&family=Leckerli+One&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Cabin:ital,wght@0,400..700;1,400..700&family=Indie+Flower&family=Leckerli+One&family=Shadows+Into+Light&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
     <title>Caffe Bene Chatbot</title>
@@ -12,24 +16,33 @@
         <div class="chatbox__support">
             <div class="chatbox__header">
                 <div class="chatbox__image--header">
-                    <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="image">
                 </div>
                 <div class="chatbox__content--header">
-                    <h4 class="chatbox__heading--header">Caffe Bene</h4>
-                    <p class="chatbox__description--header">Танд юугаар туслах вэ?</p>
+                    <h4 class="chatbox__heading--header">Caffe<span class="Bene">Bene</span></h4>
+                    <p class="chatbox__description--header">Танд туслах цахим үйлчилгээ</p>
+                </div>
+                <div class="logout--button">
+                    <button><img src="{{ url_for('static', filename='images/logout-icon.svg') }}" /></button>
                 </div>
             </div>
-            <div class="chatbox__messages">
-                <div></div>
+            <div class="text-container">
+                <div class="main-content">
+                    <div class="chatbox__messages">
+                        <div></div>
+                    </div>
+                </div>
             </div>
-            <div class="chatbox__footer">
-                <input type="text" placeholder="Энд бичнэ үү...">
-                <button class="chatbox__send--footer send__button">Илгээх</button>
+            <div class="footer">
+                <div class="chatbox__footer">
+                    <input type="text" placeholder="Энд бичнэ үү...">
+                    <button class="chatbox__send--footer send__button"><img src="{{ url_for('static', filename='images/send.svg') }}" alt="send__button"></button>
+                </div>
             </div>
         </div>
-        <div class="chatbox__button">
-            <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" /></button>
-        </div>
+    </div>
+    <div class="chatbox__button">
+        <button><img src="{{ url_for('static', filename='images/logo.png') }}" /></button>
     </div>
 </div>
 
