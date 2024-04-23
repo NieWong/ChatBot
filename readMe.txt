@@ -21,3 +21,7 @@ To train:
 Run ChatBot:
 
     python chat.py
+
+Run ChatBot App:
+
+    python app.py
