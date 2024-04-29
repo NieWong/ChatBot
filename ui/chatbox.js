@@ -117,34 +117,63 @@ class Chatbox {
             let cssClass = item.name === "Caffe Bene" ? "messages__item--visitor" : "messages__item--operator";
             let sender = item.name === "Caffe Bene" ? "CaffeBene" : "Та";
             let profilePicture = item.name === "Caffe Bene" ? "/ui/images/logo.png" : "/ui/images/user.svg";
-
+    
             let messageContent = item.name === "Caffe Bene" ? `<div class="message message-typing" id="typingEffect">${item.message}</div>` : `<div class="message">${item.message}</div>`;
-
+    
             if (item.name === "Caffe Bene" && item.message === "Тантай ойрхон хаяг:") {
                 getLocation();
-
+    
+            } else if (item.name === "Caffe Bene" && item.message === "menu") {
+                const basePath = "/ui/images/";
+                const menuItems = [
+                    { name: "Americano", price: 5000, image: "Americano.png" },
+                    { name: "Espresso", price: 4000, image: "Espresso.png" },
+                    { name: "Espresso with cream", price: 7000, image: "EspressoConPanna.png" },
+                    { name: "Espresso with foam", price: 6000, image: "EspressoMacciato.png" },
+                    { name: "Caramel Macchiato", price: 8000, image: "CaramelMacchiato.png" },
+                    { name: "Chocolate Coffee", price: 7500, image: "CaffeMocha.png" },
+                    { name: "Vanilla Latte", price: 7500, image: "VanillaLatte.png" }
+                ];
+                
+                let menuHTML = "<div class='menu'><h4>Танд үйлчлэх бидний цэс</h4><ul>";
+                
+                menuItems.forEach(item => {
+                    const imagePath = basePath + item.image;
+                    menuHTML += `<li><img src="${imagePath}" alt="${item.name}" class="coffee-image">${item.name}: ${item.price}₮</li>`;
+                });
+                
+                menuHTML += "</ul></div>";
+                
+                html += '<div class="messages__item ' + cssClass + '">' +
+                    '<img src="' + profilePicture + '" class="profile-picture">' +
+                    '<div class="message-content">' +
+                    '<div class="sender">' + sender + '</div>' +
+                    menuHTML +
+                    '</div>' +
+                    '</div>';
             } else {
                 html += '<div class="messages__item ' + cssClass + '">' +
-                '<img src="' + profilePicture + '" class="profile-picture">' +
-                '<div class="message-content">' +
-                '<div class="sender">' + sender + '</div>' +
-                messageContent +
-                '</div>' +
-                '</div>';
+                    '<img src="' + profilePicture + '" class="profile-picture">' +
+                    '<div class="message-content">' +
+                    '<div class="sender">' + sender + '</div>' +
+                    messageContent +
+                    '</div>' +
+                    '</div>';
             }
         });
-
+    
         const chatmessage = chatbox.querySelector('.chatbox__messages');
         chatmessage.innerHTML = html;
-
+    
         const typingElement = chatmessage.querySelector('#typingEffect');
         if (typingElement) {
             textTypingEffect(typingElement, typingElement.textContent);
         }
-
+    
         const textContainer = document.querySelector('.text-container');
         textContainer.scrollTop = textContainer.scrollHeight;
     }
+    
 }
 
 const chatbox = new Chatbox();
