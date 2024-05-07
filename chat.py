@@ -5,7 +5,6 @@ import torch
 import os
 from model import NeuralNet
 from nltkUtils import bag_of_words, tokenize
-from api_wiki import get_wikipedia_summary
 from api_weather import get_weather
 from subprocess import call
 
@@ -24,15 +23,6 @@ def load_data_and_initialize_model():
     model.eval()
 
     return model, intents, data['all_words'], data['tags']
-
-def handle_wikipedia_search(sentence):
-    wikipedia_search_patterns = re.compile(r"(search\s(wikipedia|wiki)|wikipedia|wiki)\s*['\"]?([^'\"]*)['\"]?")
-    if wikipedia_search_patterns.search(sentence):
-        match = wikipedia_search_patterns.search(sentence)
-        search_query = match.group(3) if match.group(3) else input(f"{bot_name}: Та Wikipedia-аас ямар мэдээлэл хайхыг хүсэж байна вэ?\n")
-        summary = get_wikipedia_summary(search_query)
-        return f"{bot_name} Wikipedia Summary for '{search_query}':\n{summary}"
-    return None
 
 def handle_weather_search(sentence):
     weather_search_patterns = re.compile(r"(weather|temperature|цаг агаар|Цаг агаар)\s*['\"]?([^'\"]*)['\"]?")
