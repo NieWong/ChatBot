@@ -87,7 +87,7 @@ def chat():
         sentence = input("You: ")
         if sentence.lower() == "quit":
             break
-        response = handle_wikipedia_search(sentence) or handle_weather_search(sentence) or handle_coffee_order(sentence) or process_message(model, sentence, intents, all_words, tags)
+        response = handle_weather_search(sentence) or handle_coffee_order(sentence) or process_message(model, sentence, intents, all_words, tags)
         print(f"{bot_name}: {response}")
 
 if __name__ == "__main__":
