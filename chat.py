@@ -56,8 +56,6 @@ def handle_coffee_order(sentence):
         return f"{coffee_name.capitalize()} is not available in our menu."
     return None
 
-
-
 def process_message(model, sentence, intents, all_words, tags):
     sentence = tokenize(sentence)
     X = bag_of_words(sentence, all_words)
@@ -82,7 +80,6 @@ def process_message(model, sentence, intents, all_words, tags):
 
 def chat():
     model, intents, all_words, tags = load_data_and_initialize_model()
-    print("Let's chat! (type 'quit' to exit)")
     while True:
         sentence = input("You: ")
         if sentence.lower() == "quit":
