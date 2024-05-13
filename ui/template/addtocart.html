@@ -9,13 +9,20 @@
 </head>
 <body>
     <div class="header">
-        <p class="logo"><img draggable="false" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"></p>
-        <div class="chatbox__content--header">
-            <h4 class="chatbox__heading--header">Caffe<span class="Bene">Bene</span></h4>
-            <p class="chatbox__description--header">Танд туслах цахим үйлчилгээ</p>
+        <div class="header-logo">
+            <p class="logo"><img draggable="false" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"></p>
+            <div class="chatbox__content--header">
+                <h4 class="chatbox__heading--header">Caffe<span class="Bene">Bene</span></h4>
+                <p class="chatbox__description--header">Танд туслах цахим үйлчилгээ</p>
+            </div>
         </div>
         <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
-        <a href="{{ url_for('index_get') }}" class="return-button">Чатбот руу буцах</a>
+        <div class="logout--button">
+            <a href="{{ url_for('index_get') }}">
+                <button><img draggable="false" src="{{ url_for('static', filename='images/logout-icon.svg') }}" alt="Logout" /></button>
+            </a>
+        </div>
+        
     </div>
     <div class="container">
         <div id="root"></div>
@@ -30,5 +37,6 @@
         </div>
     </div>
     <script type="text/javascript" src="{{ url_for('static', filename='js/addtocart.js') }}"></script>
+    
 </body>
 </html>
