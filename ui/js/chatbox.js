@@ -133,9 +133,10 @@ class Chatbox {
                     { name: "Желато Эспрессо", price: 6500, image: "Affogato.png"},
                     { name: "Сүүтэй Кофе", price: 5000, image: "CaffeLatte.png"},
                     { name: "Каппучино", price: 7500, image: "Cappuccino.png"},
-                    { name: "Caramel Macchiato", price: 8000, image: "CaramelMacchiato.png" },
-                    { name: "Chocolate Coffee", price: 7500, image: "CaffeMocha.png" },
-                    { name: "Vanilla Latte", price: 7500, image: "VanillaLatte.png" }
+                    { name: "Карамель Маккиато", price: 8000, image: "CaramelMacchiato.png" },
+                    { name: "Шоколадтай Кофе", price: 7500, image: "CaffeMocha.png" },
+                    { name: "Цагаан Шоколадтай Кофе", price: 6500, image: "WhiteMocha.jpg"},
+                    { name: "Ваниль Латте", price: 7500, image: "VanillaLatte.png" }
                 ];
                 
                 let menuHTML = "<div class='menu'><h4>Танд үйлчлэх бидний цэс</h4><ul>";
