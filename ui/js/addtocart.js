@@ -13,6 +13,12 @@ const menuItems = [
 
 const categories = [...new Set(menuItems.map((item) => item))];
 let i = 0;
+document.addEventListener("DOMContentLoaded", function() {
+    const openButton = document.querySelector(".openButton");
+    openButton.addEventListener("click", function() {
+        window.location.href = "{{ url_for('index_get') }}";
+    });
+});
 
 document.getElementById('root').innerHTML = categories.map((item) => {
     var { name, price, image } = item;
@@ -33,7 +39,12 @@ document.getElementById('root').innerHTML = categories.map((item) => {
 var cart = [];
 
 function addtocart(a) {
-    cart.push({ ...categories[a] });
+    let existingIndex = cart.findIndex(item => item.name === categories[a].name);
+    if (existingIndex !== -1) {
+        cart[existingIndex].count += 1; // Increment count if item exists
+    } else {
+        cart.push({ ...categories[a], count: 1 }); // Add new item with count 1
+    }
     displaycart();
 }
 
@@ -50,15 +61,15 @@ function displaycart() {
         document.getElementById("total").innerHTML = "₮ " + 0 + ".00";
     } else {
         document.getElementById("cartItem").innerHTML = cart.map((items) => {
-            var { name, price, image } = items;
-            total = total + price;
+            var { name, price, image, count } = items;
+            total = total + (price * count); 
             document.getElementById("total").innerHTML = "₮ " + total + ".00";
             return (
                 `<div class='cart-item'>
                     <div class='row-img'>
                         <img class='rowimg' src=${image}>
                     </div>
-                    <p style='font-size:15px; font-weight:bold;'>${name}</p>
+                    <p style='font-size:15px; font-weight:bold;'>${name} ${count}ш</p>
                     <h2 style='font-size: 15px;'>₮ ${price}.00</h2>
                     <i class='fa-solid fa-trash' onclick='delElement(${j++})'></i>
                 </div>`
@@ -69,31 +80,34 @@ function displaycart() {
 
 function purchaseItems() {
     if (cart.length === 0) {
-        showToast("Таны сагс хоосон байна!", "rgba(255, 0, 0, 1)");
+        showToast("Таны сагс хоосон байна!", "rgb(199, 54, 89)");
     } else {
         let total = cart.reduce((acc, item) => acc + item.price, 0);
         let itemNames = cart.map(item => item.name).join(", ");
-        showToast(`Амжилттай баталгаажлаа: ${itemNames}. Нийт дүн: ₮${total}.00`, "rgba(0, 255, 0, 1)");
+        showToast(`Амжилттай баталгаажлаа: ${itemNames}. Нийт дүн: ₮${total}.00`, "rgb(21, 21, 21)");
+        cart = []; // Clearing the cart array
+        displaycart(); // Update the display
     }
 }
 
 function showToast(message, color) {
     let toast = document.createElement("div"); 
     toast.textContent = message;
-    toast.style.position = "fixed";
-    toast.style.bottom = "20px";
-    toast.style.left = "50%";
-    toast.style.transform = "translateX(-50%)";
+    toast.classList.add("toast");
     toast.style.backgroundColor = color;
-    toast.style.color = "white";
-    toast.style.padding = "10px 20px";
-    toast.style.borderRadius = "5px";
-    toast.style.zIndex = "1000";
     document.body.appendChild(toast);
+
+    // Triggering reflow to enable transition
+    toast.offsetWidth; // This forces the browser to recalculate the styles
+
+    // Add the class to show the toast
+    toast.classList.add("show");
+
     setTimeout(() => {
         document.body.removeChild(toast);
     }, 3000);
 }
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const buyButton = document.querySelector('.buy-all-button');
