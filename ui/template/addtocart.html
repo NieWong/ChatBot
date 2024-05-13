@@ -18,10 +18,11 @@
         </div>
         <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
         <div class="logout--button">
-            <a href="{{ url_for('index_get') }}">
-                <button><img draggable="false" src="{{ url_for('static', filename='images/logout-icon.svg') }}" alt="Logout" /></button>
-            </a>
+            <button onclick="goBack()">
+                <img draggable="false" src="{{ url_for('static', filename='images/logout-icon.svg') }}" alt="Logout" />
+            </button>
         </div>
+        
         
     </div>
     <div class="container">
@@ -37,6 +38,10 @@
         </div>
     </div>
     <script type="text/javascript" src="{{ url_for('static', filename='js/addtocart.js') }}"></script>
-    
+    <script type="text/javascript">
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </body>
 </html>
