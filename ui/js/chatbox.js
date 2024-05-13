@@ -137,7 +137,7 @@ class Chatbox {
                     { name: "Шоколадтай Кофе", price: 7500, image: "CaffeMocha.png" },
                     { name: "Ваниль Латте", price: 7500, image: "VanillaLatte.png" }
                 ];
-                let menuHTML = "<div class='menu'><h4>Танд үйлчлэх бидний цэс</h4><div class='menu-grid'>";
+                let menuHTML = "<div class='menu'><h4>CaffeBene: Бүтээгдэхүүнүүд</h4><div class='menu-grid'>";
                 
                 menuItems.forEach(item => {
                     const imagePath = basePath + item.image;
