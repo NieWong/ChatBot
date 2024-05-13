@@ -11,8 +11,3 @@ function textTypingEffect(element, text, i = 0) {
 
     setTimeout(() => textTypingEffect(element, text, i + 1), 10);
 }
-
-
-
-
-

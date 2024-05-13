@@ -4,13 +4,11 @@ from nltk.stem.porter import PorterStemmer
 
 stemmer = PorterStemmer()
 
-
 def tokenize(sentence):
     return nltk.word_tokenize(sentence)
 
 def stem(word):
     return stemmer.stem(word.lower())
-
 
 def bag_of_words(tokenized_sentence, words):
     sentence_words = [stem(word) for word in tokenized_sentence]

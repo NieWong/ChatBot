@@ -5,7 +5,6 @@ import torch
 import os
 from model import NeuralNet
 from nltkUtils import bag_of_words, tokenize
-from api_weather import get_weather
 from subprocess import call
 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -23,15 +22,6 @@ def load_data_and_initialize_model():
     model.eval()
 
     return model, intents, data['all_words'], data['tags']
-
-def handle_weather_search(sentence):
-    weather_search_patterns = re.compile(r"(weather|temperature|цаг агаар|Цаг агаар)\s*['\"]?([^'\"]*)['\"]?")
-    if weather_search_patterns.search(sentence):
-        match = weather_search_patterns.search(sentence)
-        location = match.group(2) if match.group(2) else input(f"{bot_name}: Та ямар хотын цаг агаарыг мэдэхийг хүсэж байна вэ?\n")
-        weather_info = get_weather(WEATHER_API_KEY, location)
-        return f"{weather_info}"
-    return None
 
 def handle_coffee_order(sentence):
     coffee_order_pattern = re.compile(r"order\s*['\"]?([^'\"]*)['\"]?")
@@ -74,7 +64,7 @@ def chat():
         sentence = input("You: ")
         if sentence.lower() == "quit":
             break
-        response = handle_weather_search(sentence) or handle_coffee_order(sentence) or process_message(model, sentence, intents, all_words, tags)
+        response = handle_coffee_order(sentence) or process_message(model, sentence, intents, all_words, tags)
         print(f"{bot_name}: {response}")
 
 if __name__ == "__main__":
