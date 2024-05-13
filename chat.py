@@ -23,19 +23,6 @@ def load_data_and_initialize_model():
 
     return model, intents, data['all_words'], data['tags']
 
-def handle_coffee_order(sentence):
-    coffee_order_pattern = re.compile(r"order\s*['\"]?([^'\"]*)['\"]?")
-    if coffee_order_pattern.search(sentence):
-        match = coffee_order_pattern.search(sentence)
-        coffee_name = match.group(1)
-        with open('coffee.txt', 'r', encoding='utf-8') as coffee_file:
-            for line in coffee_file:
-                name, price, *aliases = line.strip().split(',')
-                if coffee_name.lower() == name.lower() or coffee_name.lower() in [alias.lower() for alias in aliases]:
-                    return f"{name.capitalize()}: {price.strip()}"
-        return f"{coffee_name.capitalize()} is not available in our menu."
-    return None
-
 def process_message(model, sentence, intents, all_words, tags):
     sentence = tokenize(sentence)
     X = bag_of_words(sentence, all_words)
@@ -64,7 +51,7 @@ def chat():
         sentence = input("You: ")
         if sentence.lower() == "quit":
             break
-        response = handle_coffee_order(sentence) or process_message(model, sentence, intents, all_words, tags)
+        response = process_message(model, sentence, intents, all_words, tags)
         print(f"{bot_name}: {response}")
 
 if __name__ == "__main__":
