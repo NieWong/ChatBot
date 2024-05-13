@@ -138,15 +138,20 @@ class Chatbox {
                     { name: "Цагаан Шоколадтай Кофе", price: 6500, image: "WhiteMocha.jpg"},
                     { name: "Ваниль Латте", price: 7500, image: "VanillaLatte.png" }
                 ];
-                
-                let menuHTML = "<div class='menu'><h4>Танд үйлчлэх бидний цэс</h4><ul>";
+                let menuHTML = "<div class='menu'><h4>Танд үйлчлэх бидний цэс</h4><div class='menu-grid'>";
                 
                 menuItems.forEach(item => {
                     const imagePath = basePath + item.image;
-                    menuHTML += `<li><img src="${imagePath}" alt="${item.name}" class="coffee-image">${item.name}: ${item.price}₮</li>`;
+                    menuHTML += `<div class='menu-item'>
+                                    <img src="${imagePath}" alt="${item.name}" class="coffee-image">
+                                    <div class="item-info">
+                                        <span class="centered-text">${item.price}₮</span>
+                                        <button class="add-to-cart-btn" data-name="${item.name}" data-price="${item.price}">Сагсанд хийх</button>
+                                    </div>
+                                </div>`;
                 });
                 
-                menuHTML += "</ul></div>";
+                menuHTML += "</div></div>";
                 
                 html += '<div class="messages__item ' + cssClass + '">' +
                     '<img src="' + profilePicture + '" class="profile-picture">' +

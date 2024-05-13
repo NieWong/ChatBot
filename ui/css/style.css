@@ -10,6 +10,7 @@
     justify-content: center;
     text-align: center;
 }
+
 .welcome-header {
     font-size: 2.5rem;
     color: #FFF;
@@ -366,14 +367,15 @@ img.profile-picture {
 .menu {
     display: flex;
     flex-direction: column;
-    align-items: center; 
     background-image: linear-gradient(to right bottom, #362222, #2e1e1e, #261919, #1e1515, #171010); 
     color: #ffffff;
-    border: 6px solid #ffffff; 
     border-radius: 10px;
     padding: 40px; 
     margin: 20px auto; 
     transition: background-color 0.3s ease, border-color 0.3s ease;
+    width: 100%;
+    max-width: 1000px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .menu h4 {
@@ -396,10 +398,26 @@ img.profile-picture {
 }
 
 .coffee-image {
-    width: 70px; 
-    height: 70px; 
-    border-radius: 50%;
-    margin-right: 20px; 
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.add-to-cart-btn {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
 .menu li img {
@@ -427,6 +445,24 @@ img.profile-picture {
 
 .menu li:nth-child(even)::before {
     background-color: #78909c;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: #7e6835;
+    border: 5px solid #362d2d;
+    border-radius: 8px;
+    padding: 10px;
 }
 
 @media screen and (min-width: 200px) and (max-width: 768px) {
