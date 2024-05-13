@@ -117,6 +117,7 @@ body {
     top: 0;
     background: orange;
 }
+
 .text-container {
     height: 100vh;
     overflow-y: scroll;
@@ -231,6 +232,13 @@ img.profile-picture {
     flex-direction: column;
 }
 
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
 .logout--button {
     margin-left: auto;
 }
@@ -255,6 +263,7 @@ img.profile-picture {
 .logout--button button:hover {
     background-color: rgba(255, 255, 255, 0.274); 
 }
+
 .chatbox__heading--header {
     font-family: "Shadows Into Light", cursive;
     font-weight: 400;
@@ -410,16 +419,6 @@ img.profile-picture {
     padding-top: 10px;
 }
 
-.add-to-cart-btn {
-    padding: 5px 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
 .menu li img {
     border-radius: 50%;
     margin-right: 20px;
@@ -497,4 +496,21 @@ img.profile-picture {
         height: 10px; 
         margin-right: 10px; 
     }
+}
+
+/* cart button */
+.cart-button {
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: rgb(93, 80, 44);
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.cart-button:hover {
+    background-color: rgba(93, 80, 44, 0.497);
 }

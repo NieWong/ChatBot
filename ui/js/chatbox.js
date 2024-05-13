@@ -9,7 +9,7 @@ class Chatbox {
 
         this.state = false;
         this.messages = [];
-    }
+    }   
 
     display() {
         const { logoutButton, openButton, chatBox, sendButton } = this.args;
@@ -135,7 +135,6 @@ class Chatbox {
                     { name: "Каппучино", price: 7500, image: "Cappuccino.png"},
                     { name: "Карамель Маккиато", price: 8000, image: "CaramelMacchiato.png" },
                     { name: "Шоколадтай Кофе", price: 7500, image: "CaffeMocha.png" },
-                    { name: "Цагаан Шоколадтай Кофе", price: 6500, image: "WhiteMocha.jpg"},
                     { name: "Ваниль Латте", price: 7500, image: "VanillaLatte.png" }
                 ];
                 let menuHTML = "<div class='menu'><h4>Танд үйлчлэх бидний цэс</h4><div class='menu-grid'>";
@@ -146,10 +145,9 @@ class Chatbox {
                                     <img src="${imagePath}" alt="${item.name}" class="coffee-image">
                                     <div class="item-info">
                                         <span class="centered-text">${item.price}₮</span>
-                                        <button class="add-to-cart-btn" data-name="${item.name}" data-price="${item.price}">Сагсанд хийх</button>
                                     </div>
                                 </div>`;
-                });
+                });                
                 
                 menuHTML += "</div></div>";
                 

@@ -23,8 +23,13 @@
                     <h4 class="chatbox__heading--header">Caffe<span class="Bene">Bene</span></h4>
                     <p class="chatbox__description--header">Танд туслах цахим үйлчилгээ</p>
                 </div>
-                <div class="logout--button">
-                    <button><img draggable="false" src="{{ url_for('static', filename='images/logout-icon.svg') }}" /></button>
+                <div class="header-buttons">
+                    <button class="cart-button">
+                        <a href="{{ url_for('addtocart') }}" class="cart-button">Сагс</a>
+                    </button>
+                    <div class="logout--button">
+                        <button><img draggable="false" src="{{ url_for('static', filename='images/logout-icon.svg') }}" alt="Logout" /></button>
+                    </div>
                 </div>
             </div>
             <div class="text-container">

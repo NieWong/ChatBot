@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/addtocart.css') }}">
+    <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Cabin:ital,wght@0,400..700;1,400..700&family=Indie+Flower&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <p class="logo"><img draggable="false" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"></p>
+        <div class="chatbox__content--header">
+            <h4 class="chatbox__heading--header">Caffe<span class="Bene">Bene</span></h4>
+            <p class="chatbox__description--header">Танд туслах цахим үйлчилгээ</p>
+        </div>
+        <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
+        <a href="{{ url_for('index_get') }}" class="return-button">Чатбот руу буцах</a>
+    </div>
+    <div class="container">
+        <div id="root"></div>
+        <div class="sidebar">
+            <div class="head"><p>Миний сагс</p></div>
+            <div id="cartItem">Таны сагс хоосон байна!</div>
+            <div class="foot">
+                <h3>Нийт</h3>
+                <h2 id="total">₮ 0.00</h2>
+            </div>
+            <button class="buy-all-button">Бүгдийг худалдаж авах</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/addtocart.js') }}"></script>
+</body>
+</html>

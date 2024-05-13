@@ -9,6 +9,10 @@ app = Flask(__name__, template_folder='ui', static_folder='ui')
 def index_get():
     return render_template("template/index.html")
 
+@app.route('/addtocart')
+def addtocart():
+    return render_template('template/addtocart.html')
+
 @app.post("/predict")
 def predict():
     text = request.get_json().get("message")
