@@ -1,4 +1,10 @@
-import { showPosition, showError } from './geolocation.js';
+const getLocation = () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        alert("Your browser does not support geolocation");
+    }
+};
 
 const branchAddresses = [
     { name: "Metro Mall department store, 6th khoroo, Улаанбаатар 14201", latitude: 47.9262709, longitude: 106.9149069 },
@@ -15,11 +21,12 @@ const branchAddresses = [
 ];
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
-    const R = 6371;
-    const dLat = deg2rad(lat2 - lat1);
-    const dLon = deg2rad(lon2 - lon1);
+    const R = 6371; 
+    const dLat = deg2rad(lat2 - lat1); 
+    const dLon = deg2rad(lon2 - lon1); 
 
-    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
         Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
         Math.sin(dLon / 2) * Math.sin(dLon / 2);
 
@@ -55,5 +62,32 @@ function addClosestBranchMessage(userLat, userLon) {
     chatbox.messages.push(message);
     chatbox.updateChatText(chatbox.args.chatBox);
 }
+let closestBranchMessageAdded = false;
 
-export { findClosestBranch, addClosestBranchMessage, calculateDistance, deg2rad };
+const showPosition = (position) => {
+    if (!closestBranchMessageAdded) {
+        const userLat = position.coords.latitude;
+        const userLon = position.coords.longitude;
+        addClosestBranchMessage(userLat, userLon);
+        closestBranchMessageAdded = true;
+    }
+};
+
+const showError = (error) => {
+    switch (error.code) {
+        case error.PERMISSION_DENIED:
+            alert("User denied the request for Geolocation");
+            break;
+        case error.POSITION_UNAVAILABLE:
+            alert("Location information is unavailable");
+            break;
+        case error.TIMEOUT:
+            alert("The request to get user location timed out");
+            break;
+        case error.UNKNOWN_ERROR:
+            alert("Unknown error occurred");
+            break;
+        default:
+            alert("Unknown error occurred");
+    }
+};
