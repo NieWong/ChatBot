@@ -126,10 +126,13 @@ class Chatbox {
             } else if (item.name === "Caffe Bene" && item.message === "menu") {
                 const basePath = "/ui/images/";
                 const menuItems = [
-                    { name: "Americano", price: 5000, image: "Americano.png" },
-                    { name: "Espresso", price: 4000, image: "Espresso.png" },
-                    { name: "Espresso with cream", price: 7000, image: "EspressoConPanna.png" },
-                    { name: "Espresso with foam", price: 6000, image: "EspressoMacciato.png" },
+                    { name: "Американо", price: 5000, image: "Americano.png" },
+                    { name: "Эспрессо", price: 4000, image: "Espresso.png" },
+                    { name: "Кремтэй Эспрессо", price: 7000, image: "EspressoConPanna.png" },
+                    { name: "Хөөстэй Эспрессо", price: 6000, image: "EspressoMacciato.png" },
+                    { name: "Желато Эспрессо", price: 6500, image: "Affogato.png"},
+                    { name: "Сүүтэй Кофе", price: 5000, image: "CaffeLatte.png"},
+                    { name: "Каппучино", price: 7500, image: "Cappuccino.png"},
                     { name: "Caramel Macchiato", price: 8000, image: "CaramelMacchiato.png" },
                     { name: "Chocolate Coffee", price: 7500, image: "CaffeMocha.png" },
                     { name: "Vanilla Latte", price: 7500, image: "VanillaLatte.png" }
