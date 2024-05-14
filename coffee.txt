@@ -1,0 +1,10 @@
+Espresso,$2.00,espresso
+Americano,$2.50,americano,american
+Cappuccino,$3.00,cappuccino,capp
+Latte,$3.50,latte
+Mocha,$4.00,mocha
+Macchiato,$3.00,macchiato
+Flat White,$4.00,flat white,flatwhite
+Affogato,$4.50,affogato
+Cold Brew,$3.50,cold brew,coldbrew
+Iced Coffee,$3.00,iced coffee,icedcoffee
