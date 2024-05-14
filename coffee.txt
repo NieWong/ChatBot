@@ -1,10 +1,10 @@
-Espresso,$2.00,espresso
-Americano,$2.50,americano,american
-Cappuccino,$3.00,cappuccino,capp
-Latte,$3.50,latte
-Mocha,$4.00,mocha
-Macchiato,$3.00,macchiato
-Flat White,$4.00,flat white,flatwhite
-Affogato,$4.50,affogato
-Cold Brew,$3.50,cold brew,coldbrew
-Iced Coffee,$3.00,iced coffee,icedcoffee
+Американо,₮5000,американо,американ
+Эспрессо,₮4000,эспрессо
+Кремтэй Эспрессо,₮7000,кремтэй эспрессо
+Хөөстэй Эспрессо,₮6000,хөөстэй эспрессо
+Желато Эспрессо,₮6500,желато эспрессо
+Сүүтэй Кофе,₮5000,сүүтэй кофе
+Каппучино,₮7500,каппучино
+Карамель Маккиато,₮8000,карамель маккиатто
+Шоколадтай Кофе,₮7500,шоколадтай кофе
+Ваниль Латте,₮7500,ванилла латте,ваниль латте

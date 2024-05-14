@@ -41,9 +41,9 @@ var cart = [];
 function addtocart(a) {
     let existingIndex = cart.findIndex(item => item.name === categories[a].name);
     if (existingIndex !== -1) {
-        cart[existingIndex].count += 1; // Increment count if item exists
+        cart[existingIndex].count += 1;
     } else {
-        cart.push({ ...categories[a], count: 1 }); // Add new item with count 1
+        cart.push({ ...categories[a], count: 1 }); 
     }
     displaycart();
 }
