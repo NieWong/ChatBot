@@ -22,7 +22,7 @@ def load_data_and_initialize_model():
 
     return model, intents, data['all_words'], data['tags']
 
-def handle_coffee_order(sentence):fdsf
+def handle_coffee_order(sentence):
     coffee_order_pattern = re.compile(r"захиал\s*['\"]?([^'\"]*)['\"]?")
     if coffee_order_pattern.search(sentence):
         match = coffee_order_pattern.search(sentence)
