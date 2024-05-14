@@ -85,8 +85,8 @@ function purchaseItems() {
         let total = cart.reduce((acc, item) => acc + item.price, 0);
         let itemNames = cart.map(item => item.name).join(", ");
         showToast(`Амжилттай баталгаажлаа: ${itemNames}. Нийт дүн: ₮${total}.00`, "rgb(21, 21, 21)");
-        cart = []; // Clearing the cart array
-        displaycart(); // Update the display
+        cart = [];
+        displaycart();
     }
 }
 
@@ -97,10 +97,8 @@ function showToast(message, color) {
     toast.style.backgroundColor = color;
     document.body.appendChild(toast);
 
-    // Triggering reflow to enable transition
-    toast.offsetWidth; // This forces the browser to recalculate the styles
+    toast.offsetWidth;
 
-    // Add the class to show the toast
     toast.classList.add("show");
 
     setTimeout(() => {
