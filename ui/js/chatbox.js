@@ -121,7 +121,7 @@ class Chatbox {
     
             let messageContent = item.name === "Caffe Bene" ? `<div class="message message-typing" id="typingEffect">${item.message}</div>` : `<div class="message">${item.message}</div>`;
 
-            if (item.name !== "Caffe Bene" && item.message.includes("авы")) {
+            if (item.name !== "Caffe Bene" && /авы|авъя|авья|ави/.test(item.message)) {
                 userOrder = item.message;
             }
     
@@ -175,7 +175,7 @@ class Chatbox {
         });
         
         const userOrderLowerCase = userOrder.toLowerCase();
-        if (userOrderLowerCase.includes("авы")) {
+        if (/авы|авъя|авья|ави/.test(userOrderLowerCase)) {
             const menuItems = [
                 { name: "Американо", price: 5000, image: "Americano.png" },
                 { name: "Эспрессо", price: 4000, image: "Espresso.png" },
