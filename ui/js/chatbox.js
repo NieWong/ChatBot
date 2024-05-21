@@ -9,6 +9,7 @@ class Chatbox {
 
         this.state = false;
         this.messages = [];
+        this.c = 0;
     }   
 
     display() {
@@ -175,7 +176,7 @@ class Chatbox {
         });
         
         const userOrderLowerCase = userOrder.toLowerCase();
-        if (/авы|авъя|авья|ави/.test(userOrderLowerCase)) {
+        if (/авы|авъя|авья|ави/.test(userOrderLowerCase) && this.c === 0) {
             const menuItems = [
                 { name: "Американо", price: 5000, image: "Americano.png" },
                 { name: "Эспрессо", price: 4000, image: "Espresso.png" },
@@ -191,6 +192,7 @@ class Chatbox {
             let orderedItem = menuItems.find(menuItem => userOrderLowerCase.includes(menuItem.name.toLowerCase()));
             if (orderedItem) {
                 showToast2(`Таны захиалсан ${orderedItem.name} амжилттай баталгаажлаа үнэ: ${orderedItem.price}₮!`, "rgb(21, 21, 21)");
+                this.c++;
             }
         }
         const chatmessage = chatbox.querySelector('.chatbox__messages');
@@ -206,6 +208,7 @@ class Chatbox {
     }    
     
 }
+
 function showToast2(message, color) {
     let toast = document.createElement("div"); 
     toast.textContent = message;
@@ -217,9 +220,15 @@ function showToast2(message, color) {
 
     toast.classList.add("show");
 
+
     setTimeout(() => {
         document.body.removeChild(toast);
-    }, 3000);
+    }, 1500);
+
+    // const previousToasts = document.querySelectorAll('.toast');
+    // previousToasts.forEach(toast => {
+    //     document.body.removeChild(toast);
+    // });
 }
 
 const chatbox = new Chatbox();

@@ -9,6 +9,7 @@ const getLocation = () => {
 const branchAddresses = [
     { name: "Metro Mall department store, 6th khoroo, Улаанбаатар 14201", latitude: 47.9262709, longitude: 106.9149069 },
     { name: "Энх тайвaны өргөн чөлөө 20, Hunsnii, Улаанбаатар 14250", latitude: 47.9160674, longitude: 106.9071169 },
+    { name: "Caffe Bene Coffee Shop Tanan, 33 Student St 8th khoroo Sukhbaatar District 14191 Ulaanbaatar Mongolia Ulaanbaatar 14191", latitude: 47.9207086, longitude: 106.9273613 },
     { name: "Khan Uul Tower, B.Sharav Street, Khan Uul District 3th Khoroo, Chingi, Улаанбаатар 17042", latitude: 47.8987031, longitude: 106.8957168 },
     { name: "Жигжиджавын гудамж 3, Gutliin 22, Juulchin Street, Улаанбаатар 15160", latitude: 47.919707, longitude: 106.9130918 },
     { name: "Prime Minister A.Amar St, Urgoo 2 Cinema, Улаанбаатар 14200", latitude: 47.921721, longitude: 106.9222144 },
